@@ -1,0 +1,89 @@
+default_language_version:
+        python: python3.11
+
+repos:
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.15.0
+    hooks:
+      - id: pyupgrade
+        args: [--py311-plus]
+
+  - repo: https://github.com/psf/black
+    rev: 23.11.0
+    hooks:
+      - id: black
+        language_version: python3.11
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        language_version: python3.11
+        additional_dependencies: [flake8-docstrings]
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: [--profile, black]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: check-ast
+        exclude: '^(third_party)/'
+    -   id: check-json
+        exclude: '.devcontainer/devcontainer.json' # this supports JSON with comments
+    -   id: check-toml
+    -   id: check-xml
+    -   id: check-yaml
+    -   id: check-merge-conflict
+    -   id: check-symlinks
+    -   id: check-executables-have-shebangs
+    -   id: check-shebang-scripts-are-executable
+    -   id: check-added-large-files
+        args: ['--maxkb=100']
+    -   id: trailing-whitespace
+        types: [python]
+    -   id: end-of-file-fixer
+        types: [file]
+        files: \.(py|js|vue)$
+
+
+  # - repo: https://github.com/executablebooks/mdformat
+  #   rev: 0.7.22
+  #   hooks:
+  #     - id: mdformat
+  #       name: mdformat
+  #       entry: mdformat .
+  #       language_version: python3.11
+  #       files: "docs/.*\\.md$"
+
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v2.5.0
+    hooks:
+      - id: pycln
+
+  - repo: https://github.com/isidentical/teyit
+    rev: 0.4.3
+    hooks:
+      - id: teyit
+
+  - repo: https://github.com/python-poetry/poetry
+    rev: '1.7.0'
+    hooks:
+    -   id: poetry-check
+    -   id: poetry-lock
+        name: validate poetry lock
+        args:
+        - --check
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+    -   id: codespell
+        exclude: '^(third_party/)|(poetry.lock)|(ui/package-lock.json)|(kb/.*)'
+        args:
+        # if you've got a short variable name that's getting flagged, add it here
+        - -L bu,ro,te,ue,alo,hda,ois,nam,nams,ned,som,parm,setts,inout,warmup,bumb,nd,sie,vEw
+        - --builtins clear,rare,informal,usage,code,names,en-GB_to_en-US

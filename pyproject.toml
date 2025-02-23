@@ -1,0 +1,80 @@
+[tool.poetry]
+name = "meta_agent"
+version = "0.1.0" # Starting version for meta_agent
+description = "A meta-agent for creating and evaluating AI agents"
+authors = ["Alexander Miasoiedov <msoedov@gmail.com>"]
+maintainers = ["Alexander Miasoiedov <msoedov@gmail.com>"]
+repository = "https://github.com/msoedov/meta_agent" # Adjust if different
+homepage = "https://github.com/msoedov/meta_agent"
+documentation = "https://github.com/msoedov/meta_agent/blob/main/README.md"
+license = "Apache-2.0"
+readme = "Readme.md"
+keywords = [
+    "AI agent creation",
+    "agent evaluation",
+    "meta-agent",
+    "pydantic-ai",
+    "tool usage analysis",
+    "heuristic scoring",
+]
+packages = [{ include = "meta_agent", from = "." }]
+
+[tool.poetry.scripts]
+meta_agent = "meta_agent.__main__:main" # Entry point for CLI
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.8" # For potential API integration
+uvicorn = "^0.34.0"  # For running FastAPI
+fire = "0.7.0"       # For CLI parsing
+loguru = "^0.7.3"    # Logging
+httpx = "^0.28.1"    # HTTP requests
+pydantic = "2.10.6"  # Core dependency for agent models
+#pydantic-ai = "^0.1.0"  # Placeholder: Replace with actual package if exists
+orjson = "^3.10"             # Fast JSON parsing
+rich = "13.9.4"              # Pretty printing for CLI
+numpy = ">=1.24.3,<3.0.0"    # For numerical computations in evaluation
+pandas = ">=1.4,<3.0"        # Data manipulation for analysis
+tabulate = ">=0.8.9,<0.10.0" # Table formatting
+matplotlib = "^3.9.2"        # Visualization of results
+jinja2 = "^3.1.4"            # Templating for code generation
+sentry_sdk = "^2.22.0"       # Error tracking
+tomli = "^2.2.1"             # TOML parsing
+
+[tool.poetry.group.dev.dependencies]
+# Testing
+pytest = "^8.3.4"
+pytest-asyncio = "^0.25.2"
+pytest-mock = "^3.14.0"
+pytest-httpx = "^0.35.0"
+inline-snapshot = ">=0.13.3,<0.21.0"
+
+# Code Quality
+black = ">=24.10,<26.0"
+mypy = "^1.12.0"
+pre-commit = "^4.0.1"
+ruff = "^0.7.1"         # Added for linting (replaces some manual checks)
+
+# Documentation
+mkdocs = ">=1.4.2"
+mkdocs-material = "^9.6.4"
+mkdocstrings = ">=0.26.1"
+mkdocs-jupyter = ">=0.25.1"
+
+# Development Tools
+huggingface-hub = ">=0.25.1,<0.29.0" # Optional, for model integration if needed
+
+[tool.ruff]
+line-length = 120
+select = ["E", "F", "W", "I", "N", "B"] # Enable common linting rules
+ignore = ["E501"]                       # Ignore line length for now, handled by black
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+addopts = "-v --tb=short"
