@@ -7,7 +7,7 @@ maintainers = ["Alexander Miasoiedov <msoedov@gmail.com>"]
 repository = "https://github.com/msoedov/meta_agent" # Adjust if different
 homepage = "https://github.com/msoedov/meta_agent"
 documentation = "https://github.com/msoedov/meta_agent/blob/main/README.md"
-license = "Apache-2.0"
+license = "MIT"
 readme = "Readme.md"
 keywords = [
     "AI agent creation",
