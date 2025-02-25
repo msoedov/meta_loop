@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "meta_agent"
-version = "0.1.0" # Starting version for meta_agent
+name = "meta_loop"
+version = "0.1.0" # Starting version for meta_loop
 description = "A meta-agent for creating and evaluating AI agents"
 authors = ["Alexander Miasoiedov <msoedov@gmail.com>"]
 maintainers = ["Alexander Miasoiedov <msoedov@gmail.com>"]
-repository = "https://github.com/msoedov/meta_agent" # Adjust if different
-homepage = "https://github.com/msoedov/meta_agent"
-documentation = "https://github.com/msoedov/meta_agent/blob/main/README.md"
+repository = "https://github.com/msoedov/meta_loop" # Adjust if different
+homepage = "https://github.com/msoedov/meta_loop"
+documentation = "https://github.com/msoedov/meta_loop/blob/main/README.md"
 license = "MIT"
 readme = "Readme.md"
 keywords = [
@@ -17,10 +17,10 @@ keywords = [
     "tool usage analysis",
     "heuristic scoring",
 ]
-packages = [{ include = "meta_agent", from = "." }]
+packages = [{ include = "meta_loop", from = "." }]
 
 [tool.poetry.scripts]
-meta_agent = "meta_agent.__main__:main" # Entry point for CLI
+meta_loop = "meta_loop.__main__:main" # Entry point for CLI
 
 [tool.poetry.dependencies]
 python = "^3.11"

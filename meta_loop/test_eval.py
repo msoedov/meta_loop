@@ -2,7 +2,7 @@ from typing import Any
 
 from inline_snapshot import snapshot
 
-from meta_agent import eval
+from meta_loop import eval
 
 
 class MockPart:
