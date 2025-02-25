@@ -17,7 +17,7 @@ model = OpenAIModel(
 def verbose_decorator(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
-        run_context = args[0]
+        # run_context = args[0]
         pargs = args[1:]
         print(f"Running {func.__name__} with args {pargs} and kwargs {kwargs}")
         r = func(*args, **kwargs)
@@ -134,7 +134,7 @@ def build_agent(revision: str):
 
 # Main execution function
 async def main():
-    timeout = 5 * 60  # 2-minute timeout
+    # timeout = 5 * 60  # 2-minute timeout
     generations = []
     for revision in ["v1"]:
         # for revision in ["v1", "v2", "v3"]:
