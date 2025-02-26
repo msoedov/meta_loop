@@ -56,7 +56,7 @@ inline-snapshot = ">=0.13.3,<0.21.0"
 black = ">=24.10,<26.0"
 mypy = "^1.12.0"
 pre-commit = "^4.0.1"
-ruff = "^0.7.1"         # Added for linting (replaces some manual checks)
+ruff = ">=0.7.1,<0.10.0"         # Added for linting (replaces some manual checks)
 
 # Documentation
 mkdocs = ">=1.4.2"
