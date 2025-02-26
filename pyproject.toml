@@ -65,7 +65,7 @@ mkdocstrings = ">=0.26.1"
 mkdocs-jupyter = ">=0.25.1"
 
 # Development Tools
-huggingface-hub = ">=0.25.1,<0.29.0" # Optional, for model integration if needed
+huggingface-hub = ">=0.25.1,<0.30.0" # Optional, for model integration if needed
 
 [tool.ruff]
 line-length = 120
