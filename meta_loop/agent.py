@@ -5,6 +5,7 @@ from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIModel
 
 from meta_loop.utils import verbose_decorator
+from meta_loop.eval import evaluate_run_result
 
 # Initialize the model
 model = OpenAIModel(
@@ -119,7 +120,9 @@ def builder(revision: str):
 # Track tools usage and evaluate steps heuristically
 
 
-# Main execution function
+def revision_generator(n: int):
+    for i in range(n):
+        yield f"v{i}"
 
 
 def build_agent(
@@ -137,8 +140,7 @@ def build_agent(
     async def main():
         # timeout = 5 * 60  # 2-minute timeout
         generations = []
-        for revision in ["v1"]:
-            # for revision in ["v1", "v2", "v3"]:
+        for revision in revision_generator(n=probe_count):
             agent = builder(revision)
             generations.append(agent)
 
@@ -149,5 +151,7 @@ def build_agent(
 
         result = await asyncio.gather(*coroutines)
         print(result)
+        metrics = evaluate_run_result(result)
+        print(metrics)
 
     return asyncio.run(main())

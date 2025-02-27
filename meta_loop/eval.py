@@ -161,6 +161,11 @@ def evaluate_run_result(
     return score, number_of_cycles, coverage, tool_usage
 
 
+def evaluate_map(results: list[Any], max_tools: int = 7):
+    score, *_ = evaluate_run_result(results, max_tools)
+    return (results, score)
+
+
 # Example usage
 if __name__ == "__main__":
 
