@@ -1,9 +1,10 @@
 import asyncio
 import os
-from functools import wraps
 
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIModel
+
+from meta_loop.utils import verbose_decorator
 
 # Initialize the model
 model = OpenAIModel(
@@ -13,21 +14,7 @@ model = OpenAIModel(
 )
 
 
-# Verbose decorator for logging tool execution
-def verbose_decorator(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        # run_context = args[0]
-        pargs = args[1:]
-        print(f"Running {func.__name__} with args {pargs} and kwargs {kwargs}")
-        r = func(*args, **kwargs)
-        print(f"Result: {r}")
-        return r
-
-    return wrapper
-
-
-def build_agent(revision: str):
+def builder(revision: str):
     agent_creator = Agent(model)
 
     # Tool to list available frameworks
@@ -133,24 +120,34 @@ def build_agent(revision: str):
 
 
 # Main execution function
-async def main():
-    # timeout = 5 * 60  # 2-minute timeout
-    generations = []
-    for revision in ["v1"]:
-        # for revision in ["v1", "v2", "v3"]:
-        agent = build_agent(revision)
-        generations.append(agent)
-
-    coroutines = []
-    for agent_creator in generations:
-        task = asyncio.create_task(
-            agent_creator.run("Create me a calculator agent in pydantic-ai.")
-        )
-        coroutines.append(task)
-
-    result = await asyncio.gather(*coroutines)
-    print(result)
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+def build_agent(
+    instruction,
+    probe_count: int = 16,
+    framework="*",
+    eval_fn=None,
+    test_dataset=None,
+    **kwargs,
+):
+    """
+    Build an agent based on the instruction.
+    """
+
+    async def main():
+        # timeout = 5 * 60  # 2-minute timeout
+        generations = []
+        for revision in ["v1"]:
+            # for revision in ["v1", "v2", "v3"]:
+            agent = builder(revision)
+            generations.append(agent)
+
+        coroutines = []
+        for agent_creator in generations:
+            task = asyncio.create_task(agent_creator.run(instruction))
+            coroutines.append(task)
+
+        result = await asyncio.gather(*coroutines)
+        print(result)
+
+    return asyncio.run(main())

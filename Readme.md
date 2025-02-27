@@ -32,7 +32,7 @@ import meta_loop
 
 # Build and optimize an agent
 best_agent = meta_loop.build_agent(
-    input_text="Create an agent to analyze customer reviews and predict sentiment.",
+    instruction="Create an agent to analyze customer reviews and predict sentiment.",
     probe_count=16,
     framework="crewai"
 )
@@ -53,7 +53,7 @@ def custom_eval(trial: meta_loop.Trial) -> float:
 
 # Build an agent with custom evaluation
 best_agent = meta_loop.build_agent(
-    input_text="Create an agent to analyze customer reviews and predict sentiment.",
+    instruction="Create an agent to analyze customer reviews and predict sentiment.",
     probe_count=16,
     framework="crewai",
     eval_fn=custom_eval
@@ -69,7 +69,7 @@ import meta_loop
 
 # Build an agent with a test dataset
 best_agent = meta_loop.build_agent(
-    input_text="Create an agent to analyze customer reviews and predict sentiment.",
+    instruction="Create an agent to analyze customer reviews and predict sentiment.",
     probe_count=16,
     framework="crewai",
     test_dataset=meta_loop.dataset(
