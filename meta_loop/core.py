@@ -30,4 +30,4 @@ def dataset(*pairs: tuple[str, float]):
     """
     Return the dataset.
     """
-    return
+    return list(pairs)
