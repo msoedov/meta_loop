@@ -40,7 +40,7 @@ matplotlib = "^3.9.2"        # Visualization of results
 jinja2 = "^3.1.4"            # Templating for code generation
 sentry_sdk = "^2.22.0"       # Error tracking
 tomli = "^2.2.1"             # TOML parsing
-pydantic-ai = ">=0.0.24,<0.0.28"      # Pydantic extension for AI models
+pydantic-ai = ">=0.0.24,<0.0.30"      # Pydantic extension for AI models
 # crewai = "^0.102.0"          # CrewAI integration
 # autogen = "^0.4.0"           # Code generation
 
