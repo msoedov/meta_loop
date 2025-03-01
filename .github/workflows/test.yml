@@ -9,6 +9,7 @@ on:
 env:
   POETRY_VERSION: "1.7.1"
   OPENAI_API_KEY: "sk-fake"
+  DEEPSEEK_KEY: "sk-fake"
 
 jobs:
   build:
