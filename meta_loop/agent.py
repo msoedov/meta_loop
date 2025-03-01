@@ -1,12 +1,13 @@
 import asyncio
 import os
 
+from pydantic import BaseModel
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIModel
-from pydantic import BaseModel
-from meta_loop.utils import verbose_decorator
-from meta_loop.eval import evaluate_run_result
+
 from meta_loop import primitives
+from meta_loop.eval import evaluate_run_result
+from meta_loop.utils import verbose_decorator
 
 # Initialize the model
 model = OpenAIModel(

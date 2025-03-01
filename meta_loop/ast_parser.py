@@ -45,7 +45,7 @@ def extract_definitions_with_signatures(repo_path):
                 if "tests" in root:
                     continue
                 file_path = os.path.join(root, file)
-                with open(file_path, "r", encoding="utf-8") as f:
+                with open(file_path, encoding="utf-8") as f:
                     try:
                         code = f.read()
                         tree = ast.parse(code)
@@ -62,7 +62,6 @@ def extract_definitions_with_signatures(repo_path):
 
 
 def explore_project(repo_path="meta_loop/"):
-
     funcs, cls = extract_definitions_with_signatures(repo_path)
     print("Functions with Signatures:")
     for func, path in funcs:
