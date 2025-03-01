@@ -1,10 +1,10 @@
 import os
 import subprocess
 import tempfile
-from typing import List
-from fastapi import FastAPI, File, UploadFile
 from collections import defaultdict
 from uuid import uuid4
+
+from fastapi import FastAPI, File, UploadFile
 
 app = FastAPI()
 
@@ -12,7 +12,7 @@ agent_to_files = defaultdict(str)
 
 
 @app.post("/upload/")
-async def upload_code(files: List[UploadFile] = File(...)):
+async def upload_code(files: list[UploadFile] = File(...)):
     agent_id = f"agent_{uuid4()}"
     temp_dir = tempfile.mkdtemp(prefix=f"agent_{agent_id}_")
     file_infos = []

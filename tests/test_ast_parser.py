@@ -1,8 +1,9 @@
 import ast
+
 from meta_loop.ast_parser import (
-    get_function_signature,
-    get_class_signature,
     extract_definitions_with_signatures,
+    get_class_signature,
+    get_function_signature,
 )
 
 
