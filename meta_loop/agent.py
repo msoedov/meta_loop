@@ -13,7 +13,7 @@ from meta_loop.utils import verbose_decorator
 model = OpenAIModel(
     "deepseek-chat",
     base_url="https://api.deepseek.com",
-    api_key=os.environ["DEEPSEEK_KEY"],
+    api_key=os.environ.get("DEEPSEEK_KEY", ""),
 )
 
 
