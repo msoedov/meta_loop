@@ -1,17 +1,3 @@
-class Trial:
-    """
-    State of experiment.
-    """
-
-    def __init__(self, agent, dataset, eval_fn):
-        self.agent = agent
-        self.dataset = dataset
-        self.eval_fn = eval_fn
-
-    def run(self):
-        return
-
-
 def build_agent(
     instruction,
     probe_count: int = 16,

@@ -3,9 +3,10 @@ import os
 
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIModel
-
+from pydantic import BaseModel
 from meta_loop.utils import verbose_decorator
 from meta_loop.eval import evaluate_run_result
+from meta_loop import primitives
 
 # Initialize the model
 model = OpenAIModel(
@@ -15,6 +16,23 @@ model = OpenAIModel(
 )
 
 
+class Prompt(BaseModel):
+    original: str
+    optimized: str
+
+
+async def prompt_refiner(prompt: str) -> Prompt:
+    agent_creator = Agent(model, result_type=Prompt)
+    result = await agent_creator.run(f"Refine prompt: {prompt}")
+    print(result.data)
+    return result.data
+
+
+async def researcher(instruction: str, t: primitives.Trial):
+    prompt = await prompt_refiner(instruction)
+    print(prompt)
+
+
 def builder(revision: str):
     agent_creator = Agent(model)
 
@@ -22,6 +40,22 @@ def builder(revision: str):
     @agent_creator.tool
     @verbose_decorator
     def get_frameworks(ctx: RunContext[str]):
+        """List all framework directories in 'kb'."""
+        if not os.path.exists("kb"):
+            return []
+        return [f for f in os.listdir("kb") if os.path.isdir(os.path.join("kb", f))]
+
+    @agent_creator.tool
+    @verbose_decorator
+    def get_allowed_tools(ctx: RunContext[str]):
+        """List all framework directories in 'kb'."""
+        if not os.path.exists("kb"):
+            return []
+        return [f for f in os.listdir("kb") if os.path.isdir(os.path.join("kb", f))]
+
+    @agent_creator.tool
+    @verbose_decorator
+    def authorize_tool_usage(ctx: RunContext[str]):
         """List all framework directories in 'kb'."""
         if not os.path.exists("kb"):
             return []
@@ -146,7 +180,10 @@ def build_agent(
 
         coroutines = []
         for agent_creator in generations:
-            task = asyncio.create_task(agent_creator.run(instruction))
+            refined_instructions = await prompt_refiner(instruction)
+            task = asyncio.create_task(
+                agent_creator.run(refined_instructions.optimized)
+            )
             coroutines.append(task)
 
         result = await asyncio.gather(*coroutines)

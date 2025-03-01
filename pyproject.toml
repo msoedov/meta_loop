@@ -31,16 +31,16 @@ loguru = "^0.7.3"    # Logging
 httpx = "^0.28.1"    # HTTP requests
 pydantic = "2.10.6"  # Core dependency for agent models
 #pydantic-ai = "^0.1.0"  # Placeholder: Replace with actual package if exists
-orjson = "^3.10"             # Fast JSON parsing
-rich = "13.9.4"              # Pretty printing for CLI
-numpy = ">=1.24.3,<3.0.0"    # For numerical computations in evaluation
-pandas = ">=1.4,<3.0"        # Data manipulation for analysis
-tabulate = ">=0.8.9,<0.10.0" # Table formatting
-matplotlib = "^3.9.2"        # Visualization of results
-jinja2 = "^3.1.4"            # Templating for code generation
-sentry_sdk = "^2.22.0"       # Error tracking
-tomli = "^2.2.1"             # TOML parsing
-pydantic-ai = ">=0.0.24,<0.0.28"      # Pydantic extension for AI models
+orjson = "^3.10"                 # Fast JSON parsing
+rich = "13.9.4"                  # Pretty printing for CLI
+numpy = ">=1.24.3,<3.0.0"        # For numerical computations in evaluation
+pandas = ">=1.4,<3.0"            # Data manipulation for analysis
+tabulate = ">=0.8.9,<0.10.0"     # Table formatting
+matplotlib = "^3.9.2"            # Visualization of results
+jinja2 = "^3.1.4"                # Templating for code generation
+sentry_sdk = "^2.22.0"           # Error tracking
+tomli = "^2.2.1"                 # TOML parsing
+pydantic-ai = ">=0.0.24,<0.0.28" # Pydantic extension for AI models
 # crewai = "^0.102.0"          # CrewAI integration
 # autogen = "^0.4.0"           # Code generation
 
@@ -56,7 +56,7 @@ inline-snapshot = ">=0.13.3,<0.21.0"
 black = ">=24.10,<26.0"
 mypy = "^1.12.0"
 pre-commit = "^4.0.1"
-ruff = ">=0.7.1,<0.10.0"         # Added for linting (replaces some manual checks)
+ruff = ">=0.7.1,<0.10.0" # Added for linting (replaces some manual checks)
 
 # Documentation
 mkdocs = ">=1.4.2"
@@ -81,3 +81,4 @@ asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
 testpaths = ["tests"]
 addopts = "-v --tb=short"
+norecursedirs = "sandbox"
