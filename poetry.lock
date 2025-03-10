@@ -14,14 +14,14 @@ files = [
 
 [[package]]
 name = "anthropic"
-version = "0.46.0"
+version = "0.49.0"
 description = "The official Python library for the anthropic API"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "anthropic-0.46.0-py3-none-any.whl", hash = "sha256:1445ec9be78d2de7ea51b4d5acd3574e414aea97ef903d0ecbb57bec806aaa49"},
-    {file = "anthropic-0.46.0.tar.gz", hash = "sha256:eac3d43271d02321a57c3ca68aca84c3d58873e8e72d1433288adee2d46b745b"},
+    {file = "anthropic-0.49.0-py3-none-any.whl", hash = "sha256:bbc17ad4e7094988d2fa86b87753ded8dce12498f4b85fe5810f208f454a8375"},
+    {file = "anthropic-0.49.0.tar.gz", hash = "sha256:c09e885b0f674b9119b4f296d8508907f6cff0009bc20d5cf6b35936c40b4398"},
 ]
 
 [package.dependencies]
@@ -71,6 +71,21 @@ files = [
     {file = "appnope-0.1.4-py2.py3-none-any.whl", hash = "sha256:502575ee11cd7a28c0205f379b525beefebab9d161b7c964670864014ed7213c"},
     {file = "appnope-0.1.4.tar.gz", hash = "sha256:1de3860566df9caf38f01f86f65e0e13e379af54f9e4bee1e66b48f2efffd1ee"},
 ]
+
+[[package]]
+name = "argcomplete"
+version = "3.6.0"
+description = "Bash tab completion for argparse"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "argcomplete-3.6.0-py3-none-any.whl", hash = "sha256:4e3e4e10beb20e06444dbac0ac8dda650cb6349caeefe980208d3c548708bedd"},
+    {file = "argcomplete-3.6.0.tar.gz", hash = "sha256:2e4e42ec0ba2fff54b0d244d0b1623e86057673e57bafe72dda59c64bd5dee8b"},
+]
+
+[package.extras]
+test = ["coverage", "mypy", "pexpect", "ruff", "wheel"]
 
 [[package]]
 name = "asttokens"
@@ -228,6 +243,46 @@ webencodings = "*"
 
 [package.extras]
 css = ["tinycss2 (>=1.1.0,<1.5)"]
+
+[[package]]
+name = "boto3"
+version = "1.37.9"
+description = "The AWS SDK for Python"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "boto3-1.37.9-py3-none-any.whl", hash = "sha256:cfff6e9cf4b987480fbbe85873f3e609aeea1906631c7148e5b7e3c778aebd40"},
+    {file = "boto3-1.37.9.tar.gz", hash = "sha256:51b76da93d7c2a3dff6155ee4aa25455940e7ade08292d22aeeed08b9e0dbf0b"},
+]
+
+[package.dependencies]
+botocore = ">=1.37.9,<1.38.0"
+jmespath = ">=0.7.1,<2.0.0"
+s3transfer = ">=0.11.0,<0.12.0"
+
+[package.extras]
+crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
+
+[[package]]
+name = "botocore"
+version = "1.37.9"
+description = "Low-level, data-driven core of boto 3."
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "botocore-1.37.9-py3-none-any.whl", hash = "sha256:bf0ab085ae85a4a2fa1733321069c1039745fa65ca9f335a91b8712fd6745d5f"},
+    {file = "botocore-1.37.9.tar.gz", hash = "sha256:2fdafbb9c44196cd371f4890aedf9f54352348fbae624a3880862d35724f0956"},
+]
+
+[package.dependencies]
+jmespath = ">=0.7.1,<2.0.0"
+python-dateutil = ">=2.1,<3.0.0"
+urllib3 = {version = ">=1.25.4,<2.2.0 || >2.2.0,<3", markers = "python_version >= \"3.10\""}
+
+[package.extras]
+crt = ["awscrt (==0.23.8)"]
 
 [[package]]
 name = "cachetools"
@@ -1431,6 +1486,18 @@ files = [
     {file = "jiter-0.8.2-cp39-cp39-win32.whl", hash = "sha256:ca29b6371ebc40e496995c94b988a101b9fbbed48a51190a4461fcb0a68b4a36"},
     {file = "jiter-0.8.2-cp39-cp39-win_amd64.whl", hash = "sha256:1c0dfbd1be3cbefc7510102370d86e35d1d53e5a93d48519688b1bf0f761160a"},
     {file = "jiter-0.8.2.tar.gz", hash = "sha256:cd73d3e740666d0e639f678adb176fad25c1bcbdae88d8d7b857e1783bb4212d"},
+]
+
+[[package]]
+name = "jmespath"
+version = "1.0.1"
+description = "JSON Matching Expressions"
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+files = [
+    {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
+    {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
 ]
 
 [[package]]
@@ -2789,7 +2856,7 @@ version = "3.0.50"
 description = "Library for building powerful interactive command lines in Python"
 optional = false
 python-versions = ">=3.8.0"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "prompt_toolkit-3.0.50-py3-none-any.whl", hash = "sha256:9b6427eb19e479d98acff65196a307c555eb567989e6d88ebbb1b509d9779198"},
     {file = "prompt_toolkit-3.0.50.tar.gz", hash = "sha256:544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"},
@@ -2913,53 +2980,59 @@ timezone = ["tzdata ; python_version >= \"3.9\" and platform_system == \"Windows
 
 [[package]]
 name = "pydantic-ai"
-version = "0.0.31"
+version = "0.0.36"
 description = "Agent Framework / shim to use Pydantic with LLMs"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pydantic_ai-0.0.31-py3-none-any.whl", hash = "sha256:94352f6881d01ba70f3ea0828375ba44f6b7b64f982b788854b0bc2d952ddea2"},
-    {file = "pydantic_ai-0.0.31.tar.gz", hash = "sha256:7ec3f65710ca0e2103df17bee6264bd954fba786e19e8bea1d7579a602fdb08d"},
+    {file = "pydantic_ai-0.0.36-py3-none-any.whl", hash = "sha256:7ef9cd0503ec01071fc1ad26ad9fa276baa8acd57567ae76855ecf79fffe34a4"},
+    {file = "pydantic_ai-0.0.36.tar.gz", hash = "sha256:1c27e66bacad5f23f4cdd39460cb0adef547c4cfd8730cfb9abae5c88a0a56ea"},
 ]
 
 [package.dependencies]
-pydantic-ai-slim = {version = "0.0.31", extras = ["anthropic", "cohere", "groq", "mistral", "openai", "vertexai"]}
+pydantic-ai-slim = {version = "0.0.36", extras = ["anthropic", "bedrock", "cli", "cohere", "groq", "mistral", "openai", "vertexai"]}
 
 [package.extras]
-examples = ["pydantic-ai-examples (==0.0.31)"]
+examples = ["pydantic-ai-examples (==0.0.36)"]
 logfire = ["logfire (>=2.3)"]
 
 [[package]]
 name = "pydantic-ai-slim"
-version = "0.0.31"
+version = "0.0.36"
 description = "Agent Framework / shim to use Pydantic with LLMs, slim package"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pydantic_ai_slim-0.0.31-py3-none-any.whl", hash = "sha256:58e5bc3de2c3380657c73ecacd6710600ffc859307cde63c58522243374cf859"},
-    {file = "pydantic_ai_slim-0.0.31.tar.gz", hash = "sha256:9d0aaef31feb5719036e1e40fc1953a51edc3f58bc9dffbc0304dd5b28d3d0aa"},
+    {file = "pydantic_ai_slim-0.0.36-py3-none-any.whl", hash = "sha256:f0cfe65dc4788f588c226c69e56b643f12df5f9b0a06b0d5d9e130d1e888dd49"},
+    {file = "pydantic_ai_slim-0.0.36.tar.gz", hash = "sha256:dab0d87359353be214dcf3ea22a9e9dd142d244f0cc0bdbac23d3e4ce25970a5"},
 ]
 
 [package.dependencies]
-anthropic = {version = ">=0.40.0", optional = true, markers = "extra == \"anthropic\""}
+anthropic = {version = ">=0.49.0", optional = true, markers = "extra == \"anthropic\""}
+argcomplete = {version = ">=3.5.0", optional = true, markers = "extra == \"cli\""}
+boto3 = {version = ">=1.34.116", optional = true, markers = "extra == \"bedrock\""}
 cohere = {version = ">=5.13.11", optional = true, markers = "extra == \"cohere\""}
 eval-type-backport = ">=0.2.0"
 google-auth = {version = ">=2.36.0", optional = true, markers = "extra == \"vertexai\""}
 griffe = ">=1.3.2"
 groq = {version = ">=0.12.0", optional = true, markers = "extra == \"groq\""}
 httpx = ">=0.27"
-logfire-api = ">=1.2.0"
 mistralai = {version = ">=1.2.5", optional = true, markers = "extra == \"mistral\""}
 openai = {version = ">=1.65.1", optional = true, markers = "extra == \"openai\""}
 opentelemetry-api = ">=1.28.0"
+prompt-toolkit = {version = ">=3", optional = true, markers = "extra == \"cli\""}
 pydantic = ">=2.10"
-pydantic-graph = "0.0.31"
+pydantic-graph = "0.0.36"
 requests = {version = ">=2.32.3", optional = true, markers = "extra == \"vertexai\""}
+rich = {version = ">=13", optional = true, markers = "extra == \"cli\""}
+typing-inspection = ">=0.4.0"
 
 [package.extras]
-anthropic = ["anthropic (>=0.40.0)"]
+anthropic = ["anthropic (>=0.49.0)"]
+bedrock = ["boto3 (>=1.34.116)"]
+cli = ["argcomplete (>=3.5.0)", "prompt-toolkit (>=3)", "rich (>=13)"]
 cohere = ["cohere (>=5.13.11)"]
 duckduckgo = ["duckduckgo-search (>=7.0.0)"]
 groq = ["groq (>=0.12.0)"]
@@ -3084,20 +3157,21 @@ typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
 name = "pydantic-graph"
-version = "0.0.31"
+version = "0.0.36"
 description = "Graph and state machine library"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pydantic_graph-0.0.31-py3-none-any.whl", hash = "sha256:1def20c791aa8002a32a6ea89106c7280a67d9b79e4b9a21f770f2e394d36850"},
-    {file = "pydantic_graph-0.0.31.tar.gz", hash = "sha256:4f48b5335c35d762f92f8adf8cbd5430303e4537d50b3af44cbc94e82872d3f9"},
+    {file = "pydantic_graph-0.0.36-py3-none-any.whl", hash = "sha256:fcc2c39168d79466fdbef6f54e3c07f35dfaa455d581fb190eecc77fa65b3b92"},
+    {file = "pydantic_graph-0.0.36.tar.gz", hash = "sha256:ad4216f9d3f207a9db9b03726e5084228098652bd2331b6309e937d77bcdd2f7"},
 ]
 
 [package.dependencies]
 httpx = ">=0.27"
 logfire-api = ">=1.2.0"
 pydantic = ">=2.10"
+typing-inspection = ">=0.4.0"
 
 [[package]]
 name = "pygments"
@@ -3708,6 +3782,24 @@ files = [
 ]
 
 [[package]]
+name = "s3transfer"
+version = "0.11.4"
+description = "An Amazon S3 Transfer Manager"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "s3transfer-0.11.4-py3-none-any.whl", hash = "sha256:ac265fa68318763a03bf2dc4f39d5cbd6a9e178d81cc9483ad27da33637e320d"},
+    {file = "s3transfer-0.11.4.tar.gz", hash = "sha256:559f161658e1cf0a911f45940552c696735f5c74e64362e515f333ebed87d679"},
+]
+
+[package.dependencies]
+botocore = ">=1.37.4,<2.0a.0"
+
+[package.extras]
+crt = ["botocore[crt] (>=1.37.4,<2.0a.0)"]
+
+[[package]]
 name = "sentry-sdk"
 version = "2.22.0"
 description = "Python client for Sentry (https://sentry.io)"
@@ -4065,6 +4157,21 @@ mypy-extensions = ">=0.3.0"
 typing-extensions = ">=3.7.4"
 
 [[package]]
+name = "typing-inspection"
+version = "0.4.0"
+description = "Runtime typing introspection tools"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "typing_inspection-0.4.0-py3-none-any.whl", hash = "sha256:50e72559fcd2a6367a19f7a7e610e6afcb9fac940c650290eed893d61386832f"},
+    {file = "typing_inspection-0.4.0.tar.gz", hash = "sha256:9765c87de36671694a67904bf2c96e395be9c6439bb6c87b5142569dcdd65122"},
+]
+
+[package.dependencies]
+typing-extensions = ">=4.12.0"
+
+[[package]]
 name = "tzdata"
 version = "2025.1"
 description = "Provider of IANA time zone data"
@@ -4183,7 +4290,7 @@ version = "0.2.13"
 description = "Measures the displayed width of unicode strings in a terminal"
 optional = false
 python-versions = "*"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "wcwidth-0.2.13-py2.py3-none-any.whl", hash = "sha256:3da69048e4540d84af32131829ff948f1e022c1c6bdb8d6102117aac784f6859"},
     {file = "wcwidth-0.2.13.tar.gz", hash = "sha256:72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"},
@@ -4329,4 +4436,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "141f30c9bf460fb6b97d81480d6c93d640d7b3efe6c1c58b8047860a9511ba30"
+content-hash = "4c91b0a520fc73e8a0ea1b084876ea050232146fecc215424be5d5fe060b0418"
