@@ -1941,6 +1941,33 @@ files = [
 traitlets = "*"
 
 [[package]]
+name = "mcp"
+version = "1.5.0"
+description = "Model Context Protocol SDK"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "mcp-1.5.0-py3-none-any.whl", hash = "sha256:51c3f35ce93cb702f7513c12406bbea9665ef75a08db909200b07da9db641527"},
+    {file = "mcp-1.5.0.tar.gz", hash = "sha256:5b2766c05e68e01a2034875e250139839498c61792163a7b221fc170c12f5aa9"},
+]
+
+[package.dependencies]
+anyio = ">=4.5"
+httpx = ">=0.27"
+httpx-sse = ">=0.4"
+pydantic = ">=2.7.2,<3.0.0"
+pydantic-settings = ">=2.5.2"
+sse-starlette = ">=1.6.1"
+starlette = ">=0.27"
+uvicorn = ">=0.23.1"
+
+[package.extras]
+cli = ["python-dotenv (>=1.0.0)", "typer (>=0.12.4)"]
+rich = ["rich (>=13.9.4)"]
+ws = ["websockets (>=15.0.1)"]
+
+[[package]]
 name = "mdit-py-plugins"
 version = "0.4.2"
 description = "Collection of plugins for markdown-it-py"
@@ -2979,33 +3006,33 @@ timezone = ["tzdata ; python_version >= \"3.9\" and platform_system == \"Windows
 
 [[package]]
 name = "pydantic-ai"
-version = "0.0.40"
+version = "0.0.43"
 description = "Agent Framework / shim to use Pydantic with LLMs"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pydantic_ai-0.0.40-py3-none-any.whl", hash = "sha256:d7cb87e3dafc3723ededa70e741c705fa588cb49ab7a1960c0f11c58aab2cc6c"},
-    {file = "pydantic_ai-0.0.40.tar.gz", hash = "sha256:db4ac09b8590cdf232190bad2203ce37b12057ad35b93fb305f06fbcb3245e1e"},
+    {file = "pydantic_ai-0.0.43-py3-none-any.whl", hash = "sha256:82dd077771072edcf1d50db3d8a83941456541e272b2bb7e0cb411d1d7533734"},
+    {file = "pydantic_ai-0.0.43.tar.gz", hash = "sha256:7fb144eeee16abda0956befbee2577071a77a403c3fd7bb4a71562765812e072"},
 ]
 
 [package.dependencies]
-pydantic-ai-slim = {version = "0.0.40", extras = ["anthropic", "bedrock", "cli", "cohere", "groq", "mistral", "openai", "vertexai"]}
+pydantic-ai-slim = {version = "0.0.43", extras = ["anthropic", "bedrock", "cli", "cohere", "groq", "mcp", "mistral", "openai", "vertexai"]}
 
 [package.extras]
-examples = ["pydantic-ai-examples (==0.0.40)"]
+examples = ["pydantic-ai-examples (==0.0.43)"]
 logfire = ["logfire (>=2.3)"]
 
 [[package]]
 name = "pydantic-ai-slim"
-version = "0.0.40"
+version = "0.0.43"
 description = "Agent Framework / shim to use Pydantic with LLMs, slim package"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pydantic_ai_slim-0.0.40-py3-none-any.whl", hash = "sha256:5b67312dd50c0954105553dcf1ad9b0f02a9bfae1937a2a25ede21b038395aa8"},
-    {file = "pydantic_ai_slim-0.0.40.tar.gz", hash = "sha256:f143f3ec6c2894a1d9f177a3a46c4a0bbe5b765ae84319d54d0695320dab17ad"},
+    {file = "pydantic_ai_slim-0.0.43-py3-none-any.whl", hash = "sha256:b3bbf353827dc8b38a53979dacdf31d650366204408c574238dd168821b9b9cd"},
+    {file = "pydantic_ai_slim-0.0.43.tar.gz", hash = "sha256:4e31b079b7a4fd335b775ab07779831b737bc545b130748a18c33bdf08b76424"},
 ]
 
 [package.dependencies]
@@ -3016,14 +3043,15 @@ cohere = {version = ">=5.13.11", optional = true, markers = "extra == \"cohere\"
 eval-type-backport = ">=0.2.0"
 google-auth = {version = ">=2.36.0", optional = true, markers = "extra == \"vertexai\""}
 griffe = ">=1.3.2"
-groq = {version = ">=0.12.0", optional = true, markers = "extra == \"groq\""}
+groq = {version = ">=0.15.0", optional = true, markers = "extra == \"groq\""}
 httpx = ">=0.27"
+mcp = {version = ">=1.4.1", optional = true, markers = "python_version >= \"3.10\" and extra == \"mcp\""}
 mistralai = {version = ">=1.2.5", optional = true, markers = "extra == \"mistral\""}
 openai = {version = ">=1.65.1", optional = true, markers = "extra == \"openai\""}
 opentelemetry-api = ">=1.28.0"
 prompt-toolkit = {version = ">=3", optional = true, markers = "extra == \"cli\""}
 pydantic = ">=2.10"
-pydantic-graph = "0.0.40"
+pydantic-graph = "0.0.43"
 requests = {version = ">=2.32.3", optional = true, markers = "extra == \"vertexai\""}
 rich = {version = ">=13", optional = true, markers = "extra == \"cli\""}
 typing-inspection = ">=0.4.0"
@@ -3034,8 +3062,9 @@ bedrock = ["boto3 (>=1.34.116)"]
 cli = ["argcomplete (>=3.5.0)", "prompt-toolkit (>=3)", "rich (>=13)"]
 cohere = ["cohere (>=5.13.11)"]
 duckduckgo = ["duckduckgo-search (>=7.0.0)"]
-groq = ["groq (>=0.12.0)"]
+groq = ["groq (>=0.15.0)"]
 logfire = ["logfire (>=2.3)"]
+mcp = ["mcp (>=1.4.1) ; python_version >= \"3.10\""]
 mistral = ["mistralai (>=1.2.5)"]
 openai = ["openai (>=1.65.1)"]
 tavily = ["tavily-python (>=0.5.0)"]
@@ -3156,14 +3185,14 @@ typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
 name = "pydantic-graph"
-version = "0.0.40"
+version = "0.0.43"
 description = "Graph and state machine library"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pydantic_graph-0.0.40-py3-none-any.whl", hash = "sha256:02d7465ac824971b03017117b81b756e7763b1406c1e13f330bb8e78e299ce4b"},
-    {file = "pydantic_graph-0.0.40.tar.gz", hash = "sha256:0dd25950e5c6c943a25acf01e2b5c5b17ba32c554ea7d783aa2a036f700ea52e"},
+    {file = "pydantic_graph-0.0.43-py3-none-any.whl", hash = "sha256:d1670ec8457367cc21452e90beeacf951ccc8ec07baa6f66f1bb56fe1823d472"},
+    {file = "pydantic_graph-0.0.43.tar.gz", hash = "sha256:648e70c7978e9dee0b79694aa43f57be330c98fd69edf33674e0515fe709ae43"},
 ]
 
 [package.dependencies]
@@ -3171,6 +3200,27 @@ httpx = ">=0.27"
 logfire-api = ">=1.2.0"
 pydantic = ">=2.10"
 typing-inspection = ">=0.4.0"
+
+[[package]]
+name = "pydantic-settings"
+version = "2.8.1"
+description = "Settings management using Pydantic"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "pydantic_settings-2.8.1-py3-none-any.whl", hash = "sha256:81942d5ac3d905f7f3ee1a70df5dfb62d5569c12f51a5a647defc1c3d9ee2e9c"},
+    {file = "pydantic_settings-2.8.1.tar.gz", hash = "sha256:d5c663dfbe9db9d5e1c646b2e161da12f0d734d422ee56f567d0ea2cee4e8585"},
+]
+
+[package.dependencies]
+pydantic = ">=2.7.0"
+python-dotenv = ">=0.21.0"
+
+[package.extras]
+azure-key-vault = ["azure-identity (>=1.16.0)", "azure-keyvault-secrets (>=4.8.0)"]
+toml = ["tomli (>=2.0.1)"]
+yaml = ["pyyaml (>=6.0.1)"]
 
 [[package]]
 name = "pygments"
@@ -3312,6 +3362,21 @@ files = [
 
 [package.dependencies]
 six = ">=1.5"
+
+[[package]]
+name = "python-dotenv"
+version = "1.0.1"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"},
+    {file = "python_dotenv-1.0.1-py3-none-any.whl", hash = "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"},
+]
+
+[package.extras]
+cli = ["click (>=5.0)"]
 
 [[package]]
 name = "python-multipart"
@@ -3892,6 +3957,26 @@ files = [
 ]
 
 [[package]]
+name = "sse-starlette"
+version = "2.2.1"
+description = "SSE plugin for Starlette"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "sse_starlette-2.2.1-py3-none-any.whl", hash = "sha256:6410a3d3ba0c89e7675d4c273a301d64649c03a5ef1ca101f10b47f895fd0e99"},
+    {file = "sse_starlette-2.2.1.tar.gz", hash = "sha256:54470d5f19274aeed6b2d473430b08b4b379ea851d953b11d7f1c4a2c118b419"},
+]
+
+[package.dependencies]
+anyio = ">=4.7.0"
+starlette = ">=0.41.3"
+
+[package.extras]
+examples = ["fastapi"]
+uvicorn = ["uvicorn (>=0.34.0)"]
+
+[[package]]
 name = "stack-data"
 version = "0.6.3"
 description = "Extract data from python stack frames and tracebacks for informative displays"
@@ -4435,4 +4520,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "57d7f3de2e17e5696e0de11e57bb63542d1211b818fdaede2aa8c730e3058c62"
+content-hash = "419edf9bd06c65ebe1e669a4285f307a1d9284bc257d38e12c76889154b5f2f3"
